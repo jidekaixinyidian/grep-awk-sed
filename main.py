@@ -2,6 +2,7 @@ import tkinter as tk
 import ttkbootstrap as tkb
 from ttkbootstrap.constants import *
 from tkinter import ttk, scrolledtext, filedialog, messagebox
+import tkinter.font as tkfont
 import os
 import threading
 import platform
@@ -251,6 +252,7 @@ def main():
     """主函数"""
     root = tkb.Window()
     app = Main(root)
+    print(tkfont.families())
     root.mainloop()
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@
 import platform
 import tkinter as tk
 from tkinter import ttk, scrolledtext
+import tkinter.font as tkfont
 
 from AwkHandler import AwkHandler
 from GrepHandler import GrepHandler
@@ -14,6 +15,7 @@ class UIManager:
     def __init__(self, root, app):
         self.root = root
         self.app = app
+        self.default_font = tkfont.nametofont("TkDefaultFont")
         self.setup_ui()
 
     def setup_ui(self):
@@ -47,7 +49,7 @@ class UIManager:
         title_label = ttk.Label(
             parent,
             text="脚本生成工具",
-            font=("Minecraft AE", 23, "bold")
+            font=tkfont.Font(family=self.default_font.actual()["family"], size=23, weight="bold")
         )
         title_label.grid(row=0, column=0, pady=(0, 10))
 
@@ -131,7 +133,7 @@ class UIManager:
             frame,
             text="示例: INFO",
             foreground="gray",
-            font=("Minecraft AE", 14)
+            font=tkfont.Font(family=self.default_font.actual()["family"], size=14)
         )
         self.grep_example_label.grid(row=4, column=0, sticky=tk.W)
 
@@ -170,7 +172,7 @@ class UIManager:
             frame,
             text="示例: 1",
             foreground="gray",
-            font=("Minecraft AE", 14)
+            font=tkfont.Font(family=self.default_font.actual()["family"], size=14)
         )
         self.awk_example_label.grid(row=4, column=0, sticky=tk.W)
 
@@ -209,7 +211,7 @@ class UIManager:
             frame,
             text="示例: old/new",
             foreground="gray",
-            font=("Minecraft AE", 14)
+            font=tkfont.Font(family=self.default_font.actual()["family"], size=14)
         )
         self.sed_example_label.grid(row=4, column=0, sticky=tk.W)
 
